@@ -1,0 +1,43 @@
+# ЗАПРОСЫ:
+
+# 1. Создание датчика (сенсора)
+POST http://localhost:8000/api/sensors/
+Content-Type: application/json
+
+{
+  "name": "Датчик_4",
+  "description": "Датчик Кухонный"
+}
+
+###
+
+# 2. Просмотр всех датчиков (с указанием id)
+GET http://localhost:8000/api/sensors/
+
+###
+
+# 3. Добавление меры к конкретному датчику ("sensor" - это id датчика)
+POST http://localhost:8000/api/measurements/
+Content-Type: application/json
+
+{
+  "sensor": 23,
+  "temperature": 34.9
+}
+
+###
+
+
+# 4. Обновление (описания) конкретного датчика
+PATCH http://localhost:8000/api/sensors/21/
+Content-Type: application/json
+
+{
+  "description": "Датчик комнатный"
+}
+
+###
+
+# 5. Получение полной информации по конкретному датчику (включая все имеющиеся меры для данного датчика)
+GET http://localhost:8000/api/sensors/22/
+Content-Type: application/json
